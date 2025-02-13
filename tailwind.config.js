@@ -13,6 +13,15 @@ export default {
 
     theme: {
         extend: {
+            colors: {
+                primary: '#58AFCD',
+                secondary: '#D9D9D9',
+                tertiary: '#CBFFA9',
+                quaternary: '#999999',
+                quinary: '#58AFCD',
+                senary: '#000000',
+                septenary: '#FFFFFF',
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },

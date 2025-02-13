@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\adminController;
+use App\View\Components\admin;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Blade::component('admin-layout', admin::class);
     }
 }

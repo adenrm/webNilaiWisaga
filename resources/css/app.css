@@ -1,6 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+    .btn-primary {
+        @apply text-black font-bold py-3 px-4 rounded-lg transition;
+        backdrop-filter:blur(20px) brightness(120%);
+        &:hover {
+            @apply bg-primary text-white;
+        }
+    }
+}
 
 [x-cloak] {
     display: none;

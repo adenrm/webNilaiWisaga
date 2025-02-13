@@ -17,7 +17,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body>
+    <body style="background-image: url('{{asset('img/background-1.jpg')}}')" class="bg-cover">
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
