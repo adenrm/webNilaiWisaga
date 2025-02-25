@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('value', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('study_id')->nullable();
+            $table->unsignedBigInteger('studys_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('study_id')->references('id')->on('studys');
+            $table->foreign('studys_id')->references('id')->on('studys');
             $table->integer('value_dt1');
             $table->integer('value_dt2');
             $table->integer('value_mss');

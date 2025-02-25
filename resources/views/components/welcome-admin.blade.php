@@ -30,7 +30,7 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                     @php
                         use App\Models\User;
-                        $users = User::with('value')->get();
+                        $users = User::all();
                         $adminStudy = Auth::guard('admin')->user()->study;
                         $i = 1;
                     @endphp
@@ -47,10 +47,10 @@
                                         {{ $user->class }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        {{ $value->studys ? $value->studys->name : 'N/A' }}
+                                        asfsd
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        {{ ($value->value_dt1 + $value->value_dt2 + $value->value_mss) / 3 }}
+                                        {{-- {{ ($value->value_dt1 + $value->value_dt2 + $value->value_mss) / 3 }} --}} asdq
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" data-toggle="modal" data-target="#editModal{{ $value->id }}">
