@@ -11,7 +11,7 @@
         <div style="backdrop-filter:blur(5px) brightness(110%);" class="w-full sm:max-w-md mt-6 px-6 py-4 shadow-md overflow-hidden sm:rounded-lg">
             <div class="mb-5">
                 {{-- <img src="{{ asset('img/logo.png') }}" alt=""> --}}
-                <h1 class="text-9xl text-center font-bold font-sans">ADMIN</h1>
+                <a href="{{ route('admin.login') }}" class="text-9xl text-center font-bold font-sans">GURU</a>
             </div>
     
             <form method="POST" action="{{ route('admin.login') }}">

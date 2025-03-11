@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminRegisterController;
+use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\NilaiController;
 
 Route::get('/', function () {
@@ -34,3 +35,8 @@ Route::middleware(['admin'])->group(function () {
 Route::put('/nilai/{id}', [NilaiController::class, 'update'])->name('nilai.update');
 Route::delete('/nilai/{id}', [NilaiController::class, 'destroy'])->name('nilai.destroy');
 Route::post('/nilai', [NilaiController::class, 'store'])->name('nilai.store');
+
+
+
+// Route Excel
+Route::get('export/value', [ExcelController::class, 'exportValue']);

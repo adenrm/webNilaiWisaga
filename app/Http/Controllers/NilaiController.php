@@ -69,7 +69,8 @@ class NilaiController extends Controller
         // Membuat nilai baru
         $value = new Value();
         $value->user_id = $request->input('user_id');
-        $value->study_id = $study_id; // Mengatur study_id
+        $value->studys_id = $study_id; // Mengatur study_id
+        $value->study = $study->name; // Mengatur nama study secara otomatis dari study admin
         $value->value_dt1 = $request->input('value_dt1');
         $value->value_dt2 = $request->input('value_dt2');
         $value->value_mss = $request->input('value_mss');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Studys;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -35,6 +36,11 @@ class AdminRegisterController extends Controller
         $admin->gender = $request->gender;
         $admin->study = $request->study;
         $admin->save();
+
+        $study = new Studys();
+        $study->admin_id = $admin->id;
+        $study->name = $request->study;
+        $study->save();
 
         return redirect()->route('admin.login')->with('success', 'Admin registered successfully.');
     }

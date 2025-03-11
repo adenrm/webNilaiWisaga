@@ -17,8 +17,8 @@ class Studys extends Model
         return $this->belongsTo(Admin::class);
     }
 
-    public function value(): HasMany
+    public function value(): BelongsTo
     {
-        return $this->hasMany(Value::class, 'study_id');
+        return $this->belongsTo(Value::class, 'studys_id');
     }
 }

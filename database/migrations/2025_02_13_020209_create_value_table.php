@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('studys_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('studys_id')->references('id')->on('studys');
+            $table->string('study', 20)->nullable();
             $table->integer('value_dt1');
             $table->integer('value_dt2');
             $table->integer('value_mss');

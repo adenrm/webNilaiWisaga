@@ -70,8 +70,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function value(): HasOne
+    public function value(): HasMany
     {
-        return $this->hasOne(Value::class, 'user_id', 'id');
-    }
+        return $this->hasMany(Value::class, 'user_id', 'id');
+    } 
 }
