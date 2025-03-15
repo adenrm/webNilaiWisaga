@@ -14,10 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Admin::factory()->create([
-            'name' => 'Admin User',
-            'email' => 'admin',
-            'password' => 'admin',
+        $this->call([
+            SuperAdminSeeder::class,
+            AdminSeeder::class,
+            UserSeeder::class,
+            StudySeeder::class,
         ]);
     }
 }

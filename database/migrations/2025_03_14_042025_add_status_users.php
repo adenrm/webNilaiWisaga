@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('studys', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('admin_id')->nullable();
-            $table->foreign('admin_id')->references('id')->on('admins');
-            $table->string('name', 20);
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('status', ['active', 'inactive'])->default('active')->after('password');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('studys');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('status');
+        });
     }
 };

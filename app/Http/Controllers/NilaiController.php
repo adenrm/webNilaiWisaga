@@ -57,7 +57,7 @@ class NilaiController extends Controller
 
         // Mendapatkan admin yang sedang masuk
         $admin = Auth::guard('admin')->user();
-        $study = $admin->studys->first(); // Mengambil study pertama
+        $study = $admin->studies->first(); // Mengambil study pertama
 
         if (!$study) {
             return redirect()->back()->with('error', 'Admin tidak memiliki study yang terkait.');

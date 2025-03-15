@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('value', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('studys_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('studys_id')->references('id')->on('studys');
-            $table->string('study', 20)->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('studys_id')->constrained('studys')->onDelete('cascade');
+            $table->string('study');
             $table->integer('value_dt1');
             $table->integer('value_dt2');
             $table->integer('value_mss');
@@ -32,4 +30,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('value');
     }
-};
+}; 

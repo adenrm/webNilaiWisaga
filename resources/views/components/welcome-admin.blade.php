@@ -4,8 +4,9 @@
             use App\Models\Value;
             use App\Models\Studys;
             $users = User::all();
-            $adminStudy = Auth::guard('admin')->user()->study;
-            $valueId = Studys::where('name', $adminStudy)->pluck('id');
+            $adminStudy = Auth::guard('admin')->user()->studies->pluck('id');
+            // $nameStudy = $adminStudy->nama;
+            $valueId = Studys::where('id', $adminStudy)->pluck('id');
             $value = Value::where('studys_id', $valueId)->get();
             $i = 1;
         @endphp
@@ -118,7 +119,7 @@
         <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-black bg-tertiary hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" data-toggle="modal" data-target="#addModal">
             + Tambah
         </button>
-        <button>Test</button>
+        <a href="{{route('export.value')}}">Excel</a>
         <div class="fixed z-10 inset-0 overflow-y-auto hidden" id="addModal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
             <div class="flex items-center justify-center min-h-screen">
                 <div class="fixed inset-0 bg-gray-500 opacity-75"></div>
