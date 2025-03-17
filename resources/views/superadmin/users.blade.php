@@ -292,7 +292,23 @@
                                                     </form>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-500">{{ $admin->created_at->format('d M Y') }}</div>
+                                                    <div x-data="{ isAdminOpen: false }">
+                                                        <div  @mouseover="isAdminOpen = true"
+                                                        @mouseleave="isAdminOpen = false"
+                                                         class="text-sm text-gray-500">{{ $admin->created_at->format('d M Y') }}</div>
+                                                    
+                                                            <div x-show="isAdminOpen"
+                                                                 x-transition:enter="transition ease-out duration-300"
+                                                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                                                 x-transition:leave="transition ease-in duration-200"
+                                                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                                                 class="popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
+                                                                
+                                                                <p class="text-white">{{ $admin->created_at->diffForHumans() }}</p>
+                                                            </div>
+                                                        </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-3">
                                                     <button class="inline-flex items-center text-blue-600 hover:text-blue-900 transition-colors duration-150" onclick="openEditModal('admin', {{ $admin->id }}, '{{ $admin->name }}', '{{ $admin->email }}')">
@@ -391,7 +407,23 @@
                                                     </form>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-500">{{ $user->created_at->format('d M Y') }}</div>
+                                                    <div x-data="{ isUserOpen: false }">
+                                                        <div  @mouseover="isUserOpen = true"
+                                                        @mouseleave="isUserOpen = false"
+                                                         class="text-sm text-gray-500">{{ $user->created_at->format('d M Y') }}</div>
+                                                    
+                                                            <div x-show="isUserOpen"
+                                                                 x-transition:enter="transition ease-out duration-300"
+                                                                 x-transition:enter-start="opacity-0 transform scale-95"
+                                                                 x-transition:enter-end="opacity-100 transform scale-100"
+                                                                 x-transition:leave="transition ease-in duration-200"
+                                                                 x-transition:leave-start="opacity-100 transform scale-100"
+                                                                 x-transition:leave-end="opacity-0 transform scale-95"
+                                                                 class="popover absolute bg-gray-700 border shadow-md mt-2 px-4 py-2 rounded-lg">
+                                                                
+                                                                <p class="text-white">{{ $user->created_at->diffForHumans() }}</p>
+                                                            </div>
+                                                        </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-3">
                                                     <button class="inline-flex items-center text-blue-600 hover:text-blue-900 transition-colors duration-150" onclick="openEditModal('user', {{ $user->id }}, '{{ $user->name }}', '{{ $user->email }}')">
